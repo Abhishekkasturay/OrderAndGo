@@ -4,7 +4,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../utils/userSlice"; // Adjust the path as necessary
-import logo from "../../public/logo.jpg"; // Ensure this path is correct
+import logo from "../../public/logo.png"; // Ensure this path is correct
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
