@@ -28,6 +28,7 @@ const Header = () => {
             <span>&#9776;</span> {/* Menu icon */}
           </button>
         </div>
+        <h1>Order and Travel </h1>
       </div>
       <div
         className={`w-full md:w-auto ${
