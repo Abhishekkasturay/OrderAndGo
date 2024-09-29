@@ -63,7 +63,7 @@ const Body = () => {
         </div>
 
         {/* Top Rated Restaurants Filter */}
-        <div className="search m-4 p-4 flex items-center">
+        <div className="search m-4 p-4 flex items-center font-roboto">
           <button
             className="px-4 py-2 bg-gray-100 rounded-lg"
             onClick={() => {
