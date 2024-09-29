@@ -93,7 +93,7 @@ const RailwayBooking = () => {
         position: "relative",
         height: "100vh",
         backgroundColor: "rgba(50%, 50%, 50%, 0.1)", // Optional background color
-      }}
+      }} 
     >
       <div
         style={{
@@ -131,7 +131,7 @@ const RailwayBooking = () => {
             overflow: "hidden",
           }}
         >
-          <div className="flex flex-wrap flex-col justify-center">
+          <div className="flex flex-wrap flex-col justify-center font-roboto">
             <label className="railway p-4 font-black">INDIAN RAILWAYS</label>
             <label className="ins font-black">
               Safety | Security | Punctuality
@@ -140,7 +140,7 @@ const RailwayBooking = () => {
         </div>
       </div>
 
-      <div className="flex justify-start items-start h-screen bg-gray-100 bg-opacity-80 p-4">
+      <div className="flex justify-start items-start h-screen bg-gray-100 bg-opacity-80 p-4 font-roboto">
         <form
           onSubmit={handleSubmit}
           className="bg-white p-4 rounded shadow-md w-full max-w-md"
