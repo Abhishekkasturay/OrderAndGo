@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center bg-pink-100 shadow-lg px-4 py-2 sm:bg-yellow-50 lg:bg-green-50">
+    <div className="flex flex-col md:flex-row justify-between items-center bg-pink-100 shadow-lg px-4 py-2 sm:bg-yellow-50 lg:bg-green-50 font-roboto">
       <div className="flex justify-between items-center w-full md:w-auto">
         <img className="w-32" src={logo} alt="Logo" />
         <div className="md:hidden">
