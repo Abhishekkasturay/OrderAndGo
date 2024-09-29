@@ -5,7 +5,7 @@ const Message = () => {
   const [messageList, setMessageList] = useState([]);
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4">
+    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4 font-roboto">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Messages</h2>
         <div className="mb-4">
