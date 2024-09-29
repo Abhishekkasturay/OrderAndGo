@@ -50,7 +50,7 @@ const ItemList = ({ items }) => {
       {items.map((item) => (
         <div
           key={item.id}
-          className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between relative"
+          className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between relative font-roboto"
         >
           <div className="w-9/12">
             <div className="py-2">
