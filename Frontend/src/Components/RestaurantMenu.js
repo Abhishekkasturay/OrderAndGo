@@ -14,7 +14,7 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap font-roboto">
       <div className="w-full">
         <h1 className="font-bold my-6 text-2xl">
           {selectedRestaurant.restaurant}
