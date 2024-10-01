@@ -13,34 +13,45 @@ const Login = () => {
   const { setLoggedInUser } = useContext(UserContext); // Use UserContext
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+  e.preventDefault();
+  setError("");
 
-    try {
-      const response = await fetch("https://orderandgo-2.onrender.com/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+  try {
+    const response = await fetch("https://orderandgo-2.onrender.com/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }), // Ensure username and password are set
+    });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        setError(errorText);
-        return;
-      }
-
-      const data = await response.text();
-      alert(data);
-      dispatch(login({ username }));
-      setLoggedInUser(username); // Set the logged in user in context
-      navigate("/");
-    } catch (error) {
-      console.error("Error logging in", error);
-      setError("An error occurred during login. Please try again.");
+    // Handle non-OK responses (like 400 or 500)
+    if (!response.ok) {
+      const errorData = await response.json();
+      setError(errorData.message || "Login failed");
+      return;
     }
-  };
+
+    // Parse response assuming it's JSON (most login responses are)
+    const data = await response.json();
+    
+    // Show success message or token (based on your API response)
+    alert(data.message || "Login successful!");
+
+    // Dispatch the login action with the username
+    dispatch(login({ username }));
+
+    // Set the logged-in user in context (UserContext)
+    setLoggedInUser(username);
+
+    // Navigate to another page, e.g., the dashboard or homepage
+    navigate("/");
+  } catch (error) {
+    console.error("Error logging in", error);
+    setError("An error occurred during login. Please try again.");
+  }
+};
+
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 font-roboto">
