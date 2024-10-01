@@ -31,7 +31,7 @@ const Login = () => {
         return;
       }
 
-      const data = await response.text();
+      const data = await response.json();
       alert(data);
       dispatch(login({ username }));
       setLoggedInUser(username); // Set the logged in user in context
