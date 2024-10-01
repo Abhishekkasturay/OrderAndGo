@@ -23,14 +23,11 @@ console.log("MongoDB URI:", process.env.MONGODB_URI);
 
 // Connect to MongoDB Atlas using the environment variable
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI) // Directly pass the MongoDB URI
   .then(() => console.log("MongoDB connected"))
   .catch((err) => {
     console.error("MongoDB connection error:", err);
-    process.exit(1); // Exit process with failure
+    process.exit(1);
   });
 
 // Use routes for authentication
