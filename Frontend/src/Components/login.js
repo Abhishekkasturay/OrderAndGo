@@ -26,11 +26,17 @@ const Login = () => {
     });
 
     // Handle non-OK responses (like 400 or 500)
-    if (!response.ok) {
-      const errorData = await response.json();
-      setError(errorData.message || "Login failed");
-      return;
-    }
+  if (!response.ok) {
+  try {
+    const errorData = await response.json();
+    setError(errorData.message || "Login failed");
+  } catch (err) {
+    const errorText = await response.text();
+    setError(errorText || "Login failed");
+  }
+  return;
+}
+
 
     // Parse response assuming it's JSON (most login responses are)
     const data = await response.json();
