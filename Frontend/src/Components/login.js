@@ -17,7 +17,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await fetch("https://orderandgo-2.onrender.com/api/auth/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const Login = () => {
         return;
       }
 
-      const data = await response.json();
+      const data = await response.text();
       alert(data);
       dispatch(login({ username }));
       setLoggedInUser(username); // Set the logged in user in context
