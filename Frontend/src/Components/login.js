@@ -26,7 +26,7 @@ const Login = () => {
       });
 
       if (!response.ok) {
-        const errorText = await response.Text();
+        const errorText = await response.text();
         setError(errorText);
         return;
       }
