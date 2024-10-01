@@ -41,21 +41,23 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
+
+    // Find the user by username
     const user = await User.findOne({ username });
     if (!user) {
-      return res.status(400).send("Invalid credentials");
+      return res.status(400).json({ message: "Invalid credentials" });
     }
 
     // Check if the password is correct
-    const isMatch = await user.isValidPassword(password);
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).send("Invalid credentials");
+      return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    res.send("Login successful");
+    res.status(200).json({ message: "Login successful", username: user.username });
   } catch (error) {
     console.error("Error logging in:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
