@@ -8,8 +8,12 @@ require("dotenv").config(); // Load environment variables from .env file
 
 const app = express();
 
-// Enable All CORS Requests
-app.use(cors());
+// Enable  CORS Requests
+app.use(cors({
+  origin: 'https://orderandgo-3.onrender.com', // Frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 // Use body-parser to parse JSON requests
 app.use(bodyParser.json());
