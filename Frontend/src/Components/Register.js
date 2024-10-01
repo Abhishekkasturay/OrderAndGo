@@ -9,6 +9,9 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // Using environment variable for the API URL
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -19,7 +22,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("https://orderandgo-2.onrender.com/api/auth/register", {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,13 +31,13 @@ const Register = () => {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        setError(errorText);
+        const errorData = await response.json();  // Expecting JSON response for error
+        setError(errorData.message || "An error occurred");
         return;
       }
 
-      const data = await response.text();
-      alert(data);
+      const data = await response.json();
+      alert(data.message);
       navigate("/login");
     } catch (error) {
       console.error("Error registering", error);
