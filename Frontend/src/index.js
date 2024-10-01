@@ -11,7 +11,7 @@ import Error from "./Components/Error";
 import RestaurantMenu from "./Components/RestaurantMenu";
 import Cart from "./Components/Cart";
 import Message from "./Components/TodoList";
-import Login from "./Components/login";
+import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Contact from "./Components/contact";
 const RailwayBooking = lazy(() => import("./Components/RailwayBooking"));
