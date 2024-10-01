@@ -9,7 +9,6 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +20,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch(`${API_URL}/api/auth/register`, {
+      const response = await fetch("https://orderandgo-2.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
