@@ -8,7 +8,7 @@ require("dotenv").config(); // Load environment variables from .env file
 
 const app = express();
 
-// Enable  CORS Requests
+// Enable CORS for the deployed frontend URL
 app.use(cors({
   origin: 'https://orderandgo-3.onrender.com', // Frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
