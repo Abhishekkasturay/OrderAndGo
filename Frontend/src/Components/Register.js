@@ -9,7 +9,6 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Using environment variable for the API URL
   const API_URL = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
@@ -31,13 +30,13 @@ const Register = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();  // Expecting JSON response for error
-        setError(errorData.message || "An error occurred");
+        const errorText = await response.text();
+        setError(errorText);
         return;
       }
 
-      const data = await response.json();
-      alert(data.message);
+      const data = await response.text();
+      alert(data);
       navigate("/login");
     } catch (error) {
       console.error("Error registering", error);
@@ -46,7 +45,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 font-roboto">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
         {error && <div className="mb-4 text-red-500">{error}</div>}
