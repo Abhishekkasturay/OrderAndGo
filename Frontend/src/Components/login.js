@@ -18,7 +18,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "https://orderandgo-2.onrender.com/api/auth/login",
+       "https://orderandgo-2.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
