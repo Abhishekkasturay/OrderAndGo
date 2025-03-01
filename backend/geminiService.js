@@ -15,9 +15,9 @@ You are a code reviewer with expertise in JavaScript, React, and Node.js. Your g
 `,
 });
 
-async function generateContent(prompt) {
+async function generateAIContent(prompt) {
   const result = await model.generateContent(prompt);
-  return result.response.text; 
+  return result.response.text(); 
 }
 
 module.exports = generateAIContent;
