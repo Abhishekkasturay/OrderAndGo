@@ -15,17 +15,9 @@ You are a code reviewer with expertise in JavaScript, React, and Node.js. Your g
 `,
 });
 
-const generateAIContent = async (prompt) => {
-  try {
-    const result = await model.generateContent(prompt);
-    console.log(result.response.text); // Log the AI response to the console
-    return {
-      response: result.response.text, 
-    };
-  } catch (error) {
-    console.error("Error generating content:", error);
-    throw new Error("AI content generation failed");
-  }
-};
+async function generateContent(prompt) {
+  const result = await model.generateContent(prompt);
+  return result.response.text(); 
+}
 
 module.exports = generateAIContent;
