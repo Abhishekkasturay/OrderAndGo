@@ -16,7 +16,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("https://orderandgo-2.onrender.com/api/gemin/registration", {
+      const response = await fetch("https://orderandgo-2.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
