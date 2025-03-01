@@ -17,6 +17,7 @@ const GeminiPrompt = () => {
       });
 
       const data = await response.json();
+      console.log("Response Data:", data)
       setAiResponse(data.response); // AI response from backend
     } catch (error) {
       console.error("Error fetching AI response:", error);
