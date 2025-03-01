@@ -8,7 +8,7 @@ const GeminiPrompt = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/gemini/generate", {
+      const response = await fetch("http://localhost:5000/api/gemini/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
