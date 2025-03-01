@@ -11,7 +11,7 @@ router.post("/generate", async (req, res) => {
 
   try {
     const aiResponse = await generateAIContent(prompt);
-    res.json({ response: aiResponse });
+    res.json({ aiResponse });
   } catch (error) {
     res.status(500).send("Failed to generate content");
   }
