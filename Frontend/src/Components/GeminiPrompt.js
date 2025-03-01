@@ -8,7 +8,7 @@ const GeminiPrompt = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/gemini/generate", {
+      const response = await fetch("https://orderandgo-2.onrender.com/api/gemini/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
