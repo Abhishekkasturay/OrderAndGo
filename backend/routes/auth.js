@@ -27,22 +27,27 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
+    
+    // Find the user by username
     const user = await User.findOne({ username });
     if (!user) {
-      return res.status(400).send("Invalid credentials");
+      return res.status(400).json({ success: false, message: "Invalid credentials" });
     }
 
     // Check if the password is correct
     const isMatch = await user.isValidPassword(password);
     if (!isMatch) {
-      return res.status(400).send("Invalid credentials");
+      return res.status(400).json({ success: false, message: "Invalid credentials" });
     }
 
-    res.send("Login successful");
+    // If credentials are valid, return a success response
+    return res.json({ success: true, message: "Login successful" });
+
   } catch (error) {
     console.error("Error logging in:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 });
+
 
 module.exports = router;
