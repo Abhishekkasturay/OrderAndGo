@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../utils/userSlice"; // Adjust the path as necessary
-import logo from "../../public/logo.jpg"; // Ensure this path is correct
+import { logout } from "../utils/userSlice"; 
+import logo from "../../public/logo.jpg"; 
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
-  const { loggedInUser, setLoggedInUser } = useContext(UserContext); // Use UserContext here
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext); 
   const cartItems = useSelector((store) => store.cart.items);
   const isLoggedIn = useSelector((store) => store.user.isLoggedIn);
   const dispatch = useDispatch();
-  const [menuOpen, setMenuOpen] = useState(false); // State to toggle menu
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   const handleLogout = () => {
     dispatch(logout());
-    setLoggedInUser(""); // Reset loggedInUser to an empty string
+    setLoggedInUser(""); 
   };
 
   return (
