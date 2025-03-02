@@ -6,7 +6,7 @@ import UserContext from "./utils/UserContext";
 const App = () => {
   const [userName, setUserName] = useState("");
 
-  // Simulate an API call to get user data
+
   useEffect(() => {
     const data = {
       name: "",
