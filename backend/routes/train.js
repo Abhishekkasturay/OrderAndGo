@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Train = require("../models/Train");
 
-// Get all trains or filter by from and to station codes
+
 router.get("/", async (req, res) => {
   try {
     const { from, to } = req.query;
@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get a single train by ID
+
 router.get("/:id", async (req, res) => {
   try {
     const train = await Train.findById(req.params.id);
@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Create a new train
+
 router.post("/", async (req, res) => {
   const train = new Train(req.body);
   try {
@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Update an existing train
+
 router.put("/:id", async (req, res) => {
   try {
     const train = await Train.findById(req.params.id);
@@ -62,7 +62,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Delete a train
+
 router.delete("/:id", async (req, res) => {
   try {
     const train = await Train.findById(req.params.id);
