@@ -13,12 +13,32 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Implement login logic here
-    // For simplicity, assuming login is successful
-    dispatch(login({ username }));
-    setLoggedInUser(username); // Set the logged in user in context
-    navigate("/");
-  };
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch("https://orderandgo-2.onrender.com/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      // Assuming success, update your frontend state
+      dispatch(login({ username }));
+      setLoggedInUser(username); // Update UserContext with logged-in user
+      navigate("/"); // Navigate to home page or any other page
+    } {
+      // No error handling, just log or do nothing
+      console.log("Login failed");
+    }
+  } catch (error) {
+    setError("Something went wrong. Please try again.");
+  }
+};
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
