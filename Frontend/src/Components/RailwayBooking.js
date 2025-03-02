@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import launcher from "../../public/home_page_banner1.e6749c3d9698d1ac7608.jpg"; // Ensure this path is correct
+import launcher from "../../public/home_page_banner1.e6749c3d9698d1ac7608.jpg"; 
 
 const RailwayBooking = () => {
   const [formData, setFormData] = useState({
@@ -63,7 +63,7 @@ const RailwayBooking = () => {
       style={{
         position: "relative",
         height: "100vh",
-        backgroundColor: "rgba(50%, 50%, 50%, 0.1)", // Optional background color
+        backgroundColor: "rgba(50%, 50%, 50%, 0.1)", 
       }}
     >
       <div
@@ -76,17 +76,17 @@ const RailwayBooking = () => {
           backgroundImage: `url(${launcher})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 1, // Adjust opacity here
+          opacity: 1,
           zIndex: -1,
         }}
       ></div>
 
       <div id="Banner">
         <div id="nav" style={{ display: "none" }}>
-          {/* Content for #nav */}
+         
         </div>
         <div id="nav2" style={{ display: "none" }}>
-          {/* Content for #nav2 */}
+         
         </div>
       </div>
       <div id="middlepage" style={{ marginLeft: "30px" }}>
