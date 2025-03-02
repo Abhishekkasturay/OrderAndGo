@@ -1,15 +1,15 @@
 import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../utils/userSlice"; // Adjust the path as necessary
-import UserContext from "../utils/UserContext"; // Import UserContext
+import { login } from "../utils/userSlice"; 
+import UserContext from "../utils/UserContext"; 
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { setLoggedInUser } = useContext(UserContext); // Use UserContext
+  const { setLoggedInUser } = useContext(UserContext); 
 
  const handleSubmit = async (e) => {
   e.preventDefault();
@@ -25,12 +25,12 @@ const Login = () => {
     const result = await response.json();
 
     if (result.success) {
-      // Assuming success, update your frontend state
+     
       dispatch(login({ username }));
-      setLoggedInUser(username); // Update UserContext with logged-in user
-      navigate("/"); // Navigate to home page or any other page
+      setLoggedInUser(username); 
+      navigate("/"); 
     } {
-      // No error handling, just log or do nothing
+     
       console.log("Login failed");
     }
   } catch (error) {
