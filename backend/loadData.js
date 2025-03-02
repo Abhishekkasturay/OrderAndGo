@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGODB_URI, {});
 
 const loadData = async () => {
   try {
-    const data = JSON.parse(fs.readFileSync("./trains.json", "utf8")); // Ensure the path is correct
+    const data = JSON.parse(fs.readFileSync("./trains.json", "utf8")); 
     await Train.deleteMany({});
     await Train.insertMany(data);
     console.log("Data loaded successfully");
