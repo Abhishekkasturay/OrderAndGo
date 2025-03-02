@@ -11,9 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { setLoggedInUser } = useContext(UserContext); // Use UserContext
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-   const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     const response = await fetch("https://orderandgo-2.onrender.com/api/auth/login", {
