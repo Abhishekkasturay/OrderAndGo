@@ -11,10 +11,10 @@ const ItemList = ({ items }) => {
     const itemId = item.card.info.id;
     const currentQuantity = itemQuantities[itemId] || 0;
 
-    // Dispatch addItem action to add the item to the cart
+  
     dispatch(addItem(item));
 
-    // Update quantity in local state
+   
     const newQuantity = currentQuantity + 1;
     setItemQuantities((prevState) => ({
       ...prevState,
@@ -23,7 +23,7 @@ const ItemList = ({ items }) => {
   };
 
   useEffect(() => {
-    // Update UI or dispatch any necessary actions here
+ 
     console.log("Item quantities updated:", itemQuantities);
   }, [itemQuantities]);
 
@@ -32,22 +32,22 @@ const ItemList = ({ items }) => {
     const currentQuantity = itemQuantities[itemId] || 0;
 
     if (currentQuantity === 1) {
-      // If only one item is in the cart, remove it from Redux store and local state
+     
       dispatch(removeItem(item));
 
-      // Update local state functionally
+      
       setItemQuantities((prevState) => {
         const { [itemId]: deletedItem, ...newQuantities } = prevState;
         return newQuantities;
       });
     } else if (currentQuantity > 1) {
-      // Update quantity in local state and Redux store
+     
       const newQuantity = currentQuantity - 1;
       setItemQuantities((prevState) => ({
         ...prevState,
         [itemId]: newQuantity,
       }));
-      dispatch(removeItem(item)); // Dispatch removeItem action to update Redux store
+      dispatch(removeItem(item));
     }
   };
 
