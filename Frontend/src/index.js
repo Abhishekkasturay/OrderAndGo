@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./utils/store"; // Combined store
+import store from "./utils/store"; 
 import App from "./App";
 import Body from "./Components/Body";
 import About from "./Components/About";
