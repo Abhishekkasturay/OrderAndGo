@@ -3,7 +3,7 @@ const router = express.Router();
 const generateAIContent = require("../geminiService");
 
 router.post("/generate", async (req, res) => {
-  const { prompt } = req.body; // Get the prompt from the frontend
+  const { prompt } = req.body; 
 
   if (!prompt) {
     return res.status(400).send("Prompt is required");
