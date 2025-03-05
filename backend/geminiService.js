@@ -17,7 +17,7 @@ You are an AI assistant with expertise in food recommendations and travel planni
 });
 
 async function generateAIContent(prompt) {
-  const result = await model.generateContent(prompt);
+  const result = await model.generate(prompt);
   return result.response.text(); 
 }
 
