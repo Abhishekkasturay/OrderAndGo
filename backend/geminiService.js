@@ -19,7 +19,7 @@ You are an AI assistant with expertise in food recommendations and travel planni
 async function generateAIContent(prompt) {
   const result = await model.generate(prompt);
   return result.response.text();
-  const formattedResponse = rawText
+  const formattedResponse = result
     .replace(/1\./g, "👉 1.")
     .replace(/2\./g, "👉 2.")
     .replace(/3\./g, "👉 3.")
